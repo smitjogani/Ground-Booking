@@ -1,0 +1,252 @@
+<%@page import="com.entity.Boxes"%>
+<%@page import="com.DB.DBConnect"%>
+<%@page import="com.DAO.BoxDAOImpl"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/components/style.css">
+<%@include file="/components/allCss.jsp"%>
+
+<style type="text/css">
+@import
+	url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:ital,wght@0,100;0,300;0,500;0,600;0,700;1,300;1,600&family=Roboto:wght@400;500;700;900&display=swap")
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+.ground-main {
+	padding: 0;
+	margin: 0;
+	height: 70vh;
+	width: 100%;
+	background-color: whitesmoke;
+	transition: ease 0.3s;
+}
+
+.ground {
+	height: 70vh;
+	width: 100%;
+}
+
+.ground .ground-bg {
+	width: 100%;
+	height: 40vh;
+	display: flex;
+}
+
+.ground .ground-bg img {
+	height: 70vh;
+	width: 100%;
+	object-fit: cover;
+}
+
+.ground-data {
+	display: flex;
+	margin-top: -10vh;
+	color: whitesmoke;
+	font-size: 3vw;
+	padding: 1vw;
+	margin-left: 12vw;
+	width: 35vw;
+}
+
+.ground-data h1 {
+	font-size: 5vh;
+}
+
+.ground-data span {
+	color: #1dca1dd7;
+}
+
+.boxes {
+	background-color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	width: 270px;
+	height: 500px;
+	background-color: whitesmoke;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	margin: 20px;
+	padding-bottom: 10px;
+}
+
+.card img {
+	width: 100%;
+	height: 60%;
+	object-fit: cover;
+	opacity: 1;
+}
+
+.card-content {
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.card-content h3 {
+	font-size: 3.5vh;
+	font-weight: 600;
+	margin-bottom: 2px;
+}
+
+.card-content h4 {
+	color: black;
+	opacity: 0.9;
+}
+
+.card-content .card-btn {
+	background-color: black;
+	color: #1dca1dd7;
+	padding: 6px 13px;
+	margin-top: 15px;
+	border: 1px solid transparent;
+	border-radius: 6%;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 1rem;
+}
+
+.card-content .card-btn:hover {
+	background-color: #1dca1dd7;
+	transition: 0.3s ease;
+	color: black;
+}
+
+@media ( max-width : 1040px) {
+	.ground-main {
+		height: 100vh;
+	}
+	.ground-data {
+		width: 33vh;
+	}
+	.card-content h3 {
+		font-size: 1.5vh;
+	}
+}
+</style>
+
+</head>
+<body>
+	<%@include file="nav.jsp"%>
+
+	<%
+	String sltBkMsg = (String) session.getAttribute("sucBookMsg");
+
+	if (sltBkMsg != null) {
+	%>
+	<script>
+		alert("Slot Booking Successfully");
+	</script>
+	<%
+	}
+	session.removeAttribute("sucBookMsg");
+	%>
+
+	<div class="ground-main">
+		<div class="ground">
+			<div class="ground-bg">
+				<img src="Image/f1.jpg" alt="" />
+			</div>
+			<div class="ground-data">
+				<h1>
+					Enjoy Box Cricket With <span>Your Buddies</span>.
+				</h1>
+			</div>
+		</div>
+		<div class="boxes">
+			<div class="card-container">
+
+				<%
+				BoxDAOImpl dao = new BoxDAOImpl(DBConnect.getConn());
+				List<Boxes> blist = dao.getAllBoxes();
+
+				for (Boxes b : blist) {
+				%>
+				<div class="card">
+					<img src="../img/<%=b.getBoxPicture()%>" alt="" />
+					<div class="card-content">
+						<h3><%=b.getBoxName()%></h3>
+						<h4>
+							<%=b.getBoxAdd()%>
+						</h4>
+						<h4><%=b.getBoxCity()%></h4>
+						<h4><%=b.getBoxState()%></h4>
+						<h4>
+							Rs.<%=b.getBoxPrice()%>/Slots
+						</h4>
+						<a class="card-btn" href="bookingToggleb.jsp?id=<%=b.getBoxId()%>">Book
+							Now</a>
+					</div>
+				</div>
+
+				<%
+				}
+				%>
+
+				<!-- <div class="card">
+					<img src="Image/a6.jpeg" alt="" />
+					<div class="card-content">
+						<h3>Box-Name</h3>
+						<h4>Location</h4>
+						<h4>Rs.2000/Slots</h4>
+						<a class="card-btn" href="bookingToggle.jsp">Book Now</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="Image/a1.jpeg" alt="" />
+					<div class="card-content">
+						<h3>Box-Name</h3>
+						<h4>Location</h4>
+						<h4>Rs.2000/Slots</h4>
+						<a class="card-btn" href="bookingToggle.jsp">Book Now</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="Image/a2.jpeg" alt="" />
+					<div class="card-content">
+						<h3>Box-Name</h3>
+						<h4>Location</h4>
+						<h4>Rs.2000/Slots</h4>
+						<a class="card-btn" href="bookingToggle.jsp">Book Now</a>
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="Image/a5.jpeg" alt="" />
+					<div class="card-content">
+						<h3>Box-Name</h3>
+						<h4>Location</h4>
+						<h4>Rs.2000/Slots</h4>
+						<a class="card-btn" href="bookingToggle.jsp">Book Now</a>
+					</div>
+				</div> -->
+			</div>
+			<%@include file="/components/footer.jsp"%>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:ital,wght@0,100;0,300;0,500;0,600;0,700;1,300;1,600&family=Roboto:wght@400;500;700;900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+.home {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.home video {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.home .content {
+	z-index: 888;
+	/* color: whitesmoke; */
+	width: 70%;
+	margin-top: 12vw;
+}
+
+.home .content h1 {
+	font-size: 2.5vw;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: whitesmoke;
+	letter-spacing: 2px;
+	/* line-height: 75px; */
+	margin-bottom: 1vw;
+}
+
+.home .content h1 span {
+	color: #1dca1dd7;
+	font-size: 3.1vw;
+	font-weight: 500;
+}
+
+.home .content p {
+	margin-bottom: 2vw;
+	font-size: 1.7vw;
+	color: rgba(245, 245, 245, 0.646);
+}
+
+
+.book-btn {
+	color: whitesmoke;
+	padding: 12px 24px;
+	font-size: 2vh;
+	text-decoration: none;
+}
+
+.book-btn:hover {
+	background-color: transparent;
+}
+
+.feature {
+	width: 100%;
+	height: 50vw;
+	/* background-color: black; */
+}
+
+.main-feature {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.main-feature .box {
+	background-color: white;
+	padding-top: 22px;
+	padding-left: 22px;
+	padding-right: 22px;
+	border-radius: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-feature .box .logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 1vw;
+}
+
+.main-feature .box .title {
+	color: #1dca1dd7;
+	font-size: 1.6vw;
+	font-weight: 600;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	padding-bottom: 0.2vw;
+}
+
+.main-feature .box .para {
+	font-size: 16px;
+	display: flex;
+	text-align: center;
+	padding: 0.5vw 2vw;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.footer {
+	top: 100%;
+	margin: 0;
+	bottom: 100%;
+}
+
+@media (max-width: 1040px) {
+	.home {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80vw;
+	}
+
+	.home .content h1 {
+		font-size: 2.7rem;
+	}
+
+	.home .content h1 span {
+		font-size: 3rem;
+		font-weight: 600;
+	}
+
+	.home .content p {
+		font-size: 2.2vh;
+		padding-bottom: 20px;
+	}
+
+	.main-feature {
+		flex-direction: column;
+		height: 30vh;
+	}
+
+	.footer {
+		padding: 10px;
+		top: 100%;
+		width: 100vw;
+	}
+
+}
