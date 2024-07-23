@@ -1,3 +1,15 @@
+# Gbook - Online Cricket Ground And Turf Slot Booking multivender Website
+
+# Tech stack
+Java, MySql, Java Servlets
+
+# Users
+1. End User
+2. Admin
+3. Owners Of Cricket Grounds and Turfs
+
+# UI 
+
 ![image](https://github.com/smitjogani/Ground-Booking/assets/100015904/1fe5be6a-a838-4ca9-ad94-9d27aaa2d7ea)
 ![image](https://github.com/smitjogani/Ground-Booking/assets/100015904/3c2f0145-17a5-4bf4-921e-295cff575b27)
 ![image](https://github.com/smitjogani/Ground-Booking/assets/100015904/a37c9bc3-5f8a-4d9f-baa3-34485c797238)
