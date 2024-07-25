@@ -5,8 +5,17 @@ Java, MySql, Java Servlets
 
 # Users
 1. End User
-2. Admin
-3. Owners Of Cricket Grounds and Turfs
+2. Owners Of Cricket Grounds and Turfs
+3. Umpire
+
+# Features
+1. Login, Signup and Logout (With Validations)
+2. Book Creicket Ground slotas, Turf sloats
+3. Get details of Umpire
+4. Owner manages their Cricket Grounds and Turfs
+5. Ownder dynamically create sloats for each grounds and turfs
+6. Show all Booking Sloats
+7. Owner show and edit his/hers profiles
 
 # UI 
 
