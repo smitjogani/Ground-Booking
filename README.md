@@ -1,7 +1,7 @@
 # Gbook - Online Cricket Ground And Turf Slot Booking multivender Website
 
 # Tech stack
-Java, MySql, Java Servlets
+Java, MySql, Java Servlets and Pages, HTML, CSS, Javascript 
 
 # Document :
 [1703156560288.pdf](https://github.com/user-attachments/files/16372111/1703156560288.pdf)
